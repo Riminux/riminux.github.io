@@ -5,5 +5,5 @@ order: 4
 ---
 
 <script>
-  window.location.href = '/about/about.html';  // Adjust the path if your about.html is in a different directory
+  window.location.href = '/about/about.html';
 </script>
