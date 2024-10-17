@@ -1,3 +1,111 @@
+/* Contact Form Section */
+.contact {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    background: #1e1e1e;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.contact-content {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form {
+    width: 100%;
+    background-color: #252525;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ffffff;
+}
+
+.contact-form button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .contact-content {
+        padding: 15px;
+    }
+
+    .contact h1 {
+        font-size: 24px;
+    }
+
+    .contact p {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 8px;
+    }
+
+    .contact-form button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-content {
+        padding: 10px;
+    }
+
+    .contact h1 {
+        font-size: 20px;
+    }
+
+    .contact p {
+        font-size: 14px;
+    }
+
+    .contact-form {
+        padding: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        padding: 6px;
+    }
+
+    .contact-form button {
+        padding: 8px;
+        font-size: 12px;
+    }
+}
+
+
 /* General Table Styles */
 table {
     width: 100%;
@@ -20,16 +128,16 @@ thead th {
 
     table {
         width: 100%;
-        border: none; /* Remove extra borders for a cleaner look */
+        border: none;
     }
 
     thead {
-        display: none; /* Hide the table header on mobile */
+        display: none;
     }
 
     tbody tr {
         display: block;
-        margin-bottom: 15px; /* Add extra spacing between rows */
+        margin-bottom: 15px;
         border: 1px solid #333;
         border-radius: 10px;
         background: linear-gradient(to right, #e61442, #a84652);
@@ -38,10 +146,10 @@ thead th {
     tbody tr td {
         display: block;
         text-align: left;
-        padding: 12px 15px; /* Add more padding to avoid crowding */
+        padding: 12px 15px;
         position: relative;
-        font-size: 14px; /* Reduce font size slightly for better readability */
-        word-wrap: break-word; /* Ensures long text breaks into the next line */
+        font-size: 14px;
+        word-wrap: break-word;
     }
 
     tbody tr td::before {
@@ -49,7 +157,7 @@ thead th {
         font-weight: bold;
         display: inline-block;
         margin-bottom: 5px;
-        color: #ff416c; /* Label color */
+        color: #ff416c;
     }
 
     tbody tr td:last-child {
@@ -60,12 +168,12 @@ thead th {
 /* Extra Small Screens (below 400px) */
 @media (max-width: 772px) {
     tbody tr td {
-        font-size: 12px; /* Further reduce font size */
-        padding: 10px; /* Adjust padding to avoid overlap */
+        font-size: 12px;
+        padding: 10px;
     }
 
     tbody tr td::before {
-        font-size: 12px; /* Match label size with content size */
+        font-size: 12px;
     }
 }
 
@@ -73,31 +181,31 @@ thead th {
 /* Table Styles for Mobile (Small Devices) */
 @media (max-width: 772px) {
     .table-container {
-        width: 100%; /* Ensures the container fits the mobile screen */
+        width: 100%;
     }
 
     table {
-        border-collapse: collapse; /* Avoids border doubling */
+        border-collapse: collapse;
         width: 100%;
     }
 
     thead {
-        display: none; /* Hides the table header on small screens */
+        display: none;
     }
 
     tbody tr {
         display: block;
-        margin-bottom: 10px; /* Adds space between rows */
-        border: 1px solid #333; /* Adds a border to each row for readability */
+        margin-bottom: 10px;
+        border: 1px solid #333;
         border-radius: 10px;
         padding: 10px;
-        background-color: #2a2a2a; /* Keeps background color consistent */
+        background-color: #2a2a2a;
     }
 
     tbody tr td {
         display: block;
         text-align: right;
-        padding: 10px 10px 10px 50%; /* Adds padding for space between label and value */
+        padding: 10px 10px 10px 50%;
         position: relative;
         border-bottom: none;
     }
@@ -108,12 +216,12 @@ thead th {
         left: 10px;
         width: 45%;
         font-weight: bold;
-        color: #ff416c; /* Highlight the labels */
+        color: #ff416c;
         text-align: left;
     }
 
     tbody tr td:last-child {
-        border-bottom: none; /* Avoids border on the last cell */
+        border-bottom: none;
     }
 }
 
@@ -141,7 +249,7 @@ thead th {
     .hero {
         padding: 20px;
         text-align: center;
-        background-attachment: scroll; /* Disable fixed background for mobile */
+        background-attachment: scroll;
     }
 
     .hero-content h1 {
