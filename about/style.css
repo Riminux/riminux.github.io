@@ -1,112 +1,39 @@
-/* Contact Form Section */
-.contact {
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    background: #1e1e1e;
-    height: 100vh;
-    overflow: hidden;
+
+@media (max-width: 772px) {
+    section.contact {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .contact-content {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
 }
 
-.contact-content {
-    width: 100%;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.contact-form {
-    width: 100%;
-    background-color: #252525;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
+@media (max-width: 390px) {
+    section.contact {
+        padding: 10px;
+    }
 
-.contact-form input,
-.contact-form textarea {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #333;
-    color: #ffffff;
-}
-
-.contact-form button {
-    width: calc(100% - 20px);
-    padding: 10px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 768px) {
     .contact-content {
         padding: 15px;
-    }
-
-    .contact h1 {
-        font-size: 24px;
-    }
-
-    .contact p {
-        font-size: 16px;
-    }
-
-    .contact-form {
-        padding: 15px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 8px;
-    }
-
-    .contact-form button {
-        padding: 10px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contact-content {
-        padding: 10px;
-    }
-
-    .contact h1 {
-        font-size: 20px;
-    }
-
-    .contact p {
-        font-size: 14px;
-    }
-
-    .contact-form {
-        padding: 10px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        padding: 6px;
-    }
-
-    .contact-form button {
-        padding: 8px;
-        font-size: 12px;
+        width: 100%;
     }
 }
 
 
-/* General Table Styles */
+
+
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -120,7 +47,7 @@ thead th {
     text-align: center;
 }
 
-/* Mobile Responsive Table Styles */
+
 @media (max-width: 772px) {
     .table-container {
         width: 100%;
@@ -165,7 +92,7 @@ thead th {
     }
 }
 
-/* Extra Small Screens (below 400px) */
+
 @media (max-width: 772px) {
     tbody tr td {
         font-size: 12px;
@@ -178,7 +105,7 @@ thead th {
 }
 
 
-/* Table Styles for Mobile (Small Devices) */
+
 @media (max-width: 772px) {
     .table-container {
         width: 100%;
@@ -225,11 +152,11 @@ thead th {
     }
 }
 
-/* Existing styles here */
 
-/* Mobile styles for improved responsiveness */
+
+
 @media (max-width: 772px) {
-    /* Navigation */
+   
     nav {
         flex-direction: column;
         padding: 10px;
@@ -245,7 +172,7 @@ thead th {
         margin-bottom: 10px;
     }
 
-    /* Hero Section */
+   
     .hero {
         padding: 20px;
         text-align: center;
@@ -256,21 +183,21 @@ thead th {
         font-size: 36px;
     }
 
-    .hero-content p {
+    .hero-content p{
         font-size: 16px;
         margin-bottom: 20px;
     }
 
-    /* About Section */
+   
     .about h2 {
         font-size: 28px;
     }
 
-    .about-content p {
+    .about-content p{
         font-size: 16px;
     }
 
-    /* Experience Section */
+   
     .experience h1, .experience h2 {
         font-size: 28px;
     }
@@ -280,7 +207,7 @@ thead th {
         padding: 8px;
     }
 
-    /* Achievements Section */
+   
     .achievements h1 {
         font-size: 36px;
     }
@@ -294,7 +221,7 @@ thead th {
         padding: 15px;
     }
 
-    /* Contact Section */
+   
     .contact h1 {
         font-size: 28px;
     }
@@ -304,34 +231,34 @@ thead th {
         max-width: 100%;
     }
 
-    /* Footer */
+   
     footer, .other-footer {
         padding: 10px;
     }
 
-    .footer, .other-footer p {
+    .footer, .other-footer p{
         font-size: 16px;
     }
 }
 
-@media (max-width: 480px) {
-    /* Further adjustments for very small screens */
+@media (max-width: 390px) {
+   
 
-    /* Logo */
+   
     .logo {
         font-size: 24px;
     }
 
-    /* Hero Content */
+   
     .hero-content h1 {
         font-size: 28px;
     }
 
-    .hero-content p {
+    .hero-content p{
         font-size: 14px;
     }
 
-    /* Contact Form */
+   
     .contact-form input, .contact-form textarea {
         padding: 10px;
     }
@@ -436,7 +363,7 @@ nav {
     margin-bottom: 20px;
 }
 
-.hero-content p {
+.hero-content p{
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -546,7 +473,7 @@ nav {
     text-align: center;
 }
 
-.about p {
+.about p{
     font-size: 18px;
     line-height: 1.8;
     margin-bottom: 30px;
@@ -662,7 +589,7 @@ nav {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 772px) {
     .experience h1, .experience h2 {
         font-size: 28px;
     }
@@ -764,7 +691,7 @@ tr:hover td {
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 772px) {
     th, td {
         display: block;
         text-align: right;
@@ -844,7 +771,7 @@ footer a:hover {
     color: #ff416c;
 }
 
-.contact p {
+.contact p{
     font-size: 18px;
     margin-bottom: 30px;
     color: #ffffff;
@@ -934,7 +861,7 @@ footer a:hover {
     position: relative;
 }
 
-.other-footer p {
+.other-footer p{
     margin: 0;
     color: #ff416c;
     font-weight: 500;
