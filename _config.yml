@@ -122,7 +122,7 @@ comments:
   giscus:
     repo: riminux/riminux.github.io
     repo_id: R_kgDONAP7sA
-    category:
+    category: General
     category_id: DIC_kwDONAP7sM4CjW2b
     mapping: # optional, default to 'pathname'
     strict: # optional, default to '0'
