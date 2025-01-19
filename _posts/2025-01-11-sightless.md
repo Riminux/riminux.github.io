@@ -39,6 +39,7 @@ PORT   STATE SERVICE VERSION
 The scan reveals FTP, SSH, and an HTTP service running. Exploring the HTTP service at `http://sightless.htb` shows the server is hosting **SQLPad**:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless1.png)
 
+
 Clicking "Start Now" button leads to `sqlpad.sightless.htb` which to access I need to add it to `/etc/hosts`:
 ![](/assets/blogimages/Writeups/Hackthebox/Sightless/sightless2.png)
 
