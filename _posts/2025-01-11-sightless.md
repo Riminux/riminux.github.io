@@ -10,7 +10,7 @@ image:
 
 # Sightless(E)
 
-# Enumeration
+## Foothold
 
 
 We start with an `nmap` scan to identify open ports and services on the target:
@@ -118,7 +118,7 @@ Credentials obtained:
 
 Logging in via SSH as `michael` allowed retrieval of the user flag.
 
-# Privilege Escalation
+## Privilege Escalation
 
 To identify potential privilege escalation vectors, I utilized `linpeas.sh`. The script was transferred to the target and made executable using the following commands:
 ```
