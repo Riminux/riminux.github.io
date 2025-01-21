@@ -236,7 +236,7 @@ Listed tables:
 ![](/assets/blogimages/Writeups/Hackthebox/MonitorsThree/MonitorsThree16.png)
 
 Dumped **Option** table:
-`select *from Option;`
+`select * from Option;`
 ```
 4||encryption-module|
 4||compression-module|zip
