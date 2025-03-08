@@ -118,7 +118,6 @@ sqlite> select * from user
 26|c|4a8a08f09d37b73795649038408b5f33
 27|e|e1671797c52e15f763380b45e841ec32
 28|za|959848ca10cc8a60da818ac11523dc63
-29|user|ee11cbb19052e40b07aac0ca060c23ee
 ```
 
 The output contained multiple user hashes, but `rosa` stood out as it was the only other system user:
