@@ -1,11 +1,5 @@
-{% if include.post %}
-  {% assign _post = include.post %}
+{% if page.description %}
+  {{ page.description }}
 {% else %}
-  {% assign _post = page %}
-{% endif %}
-
-{% if _post.description %}
-  {{ _post.description }}
-{% else %}
-  {{ _post.excerpt | strip_html | truncate: 160 }}
+  {{ page.excerpt | strip_html | truncate: 160 }}
 {% endif %}
