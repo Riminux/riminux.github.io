@@ -49,14 +49,11 @@ title: About
     flex-shrink: 0;
   }
 
-  #about-page .about-eyebrow {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--link-color);
-    margin-bottom: 0.4rem;
+  #about-page .about-greeting {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-muted-color);
+    margin-bottom: 0.3rem;
   }
 
   #about-page .about-name {
@@ -166,11 +163,70 @@ title: About
     color: var(--text-muted-color);
   }
 
+  /* Services */
+  #about-page .about-services-intro {
+    color: var(--text-color);
+    max-width: 700px;
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+  }
+
+  #about-page .service-card {
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border-radius: 10px;
+    padding: 1.4rem;
+    transition: transform 0.15s ease;
+  }
+
+  #about-page .service-card:hover {
+    transform: translateY(-3px);
+  }
+
+  #about-page .service-card i {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--sidebar-bg);
+    color: var(--link-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  #about-page .service-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.4rem;
+  }
+
+  #about-page .service-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted-color);
+    line-height: 1.5;
+    margin: 0;
+  }
+
   /* Platform + certification cards */
   #about-page .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
+  }
+
+  #about-page .cert-badge-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 2.75rem;
+    text-decoration: none !important;
   }
 
   #about-page .platform-card,
@@ -383,22 +439,22 @@ title: About
 </style>
 
 <section class="about-hero">
-  <img src="{{ '/assets/img/favicons/profilepic.png' | relative_url }}" alt="Riminux" class="about-avatar">
+  <img src="{{ '/assets/img/favicons/profilepic.png' | relative_url }}" alt="Raimundas Maciulis" class="about-avatar">
   <div>
-    <span class="about-eyebrow">Offensive Security</span>
-    <h1 class="about-name">Riminux</h1>
-    <p class="about-tagline">Cyber Security Engineer &amp; Penetration Tester</p>
+    <span class="about-greeting">Hi, I'm</span>
+    <h1 class="about-name">Raimundas Maciulis</h1>
+    <p class="about-tagline">aka <strong>Riminux</strong> &mdash; Penetration Tester &amp; Security Consultant</p>
     <p class="about-bio">
-      I'm a cybersecurity engineer focused on offensive security — finding, exploiting, and clearly
-      documenting vulnerabilities across web applications and networks. Most of what I know I built
-      through hands-on practice on TryHackMe and HackTheBox, where I currently rank in the
-      <strong>top 1% worldwide</strong>. I'm also pursuing a BA in Information Systems &amp; Cyber
-      Security at Vilnius University, and I write in-depth walkthroughs of the machines and challenges
-      I work through on this blog.
+      I'm a cybersecurity engineer and penetration tester specializing in offensive security —
+      identifying, exploiting, and clearly documenting vulnerabilities across web applications,
+      networks, and wireless environments for organizations across Lithuania and the Baltics.
+      Outside of client work, I rank in the <strong>top 1% worldwide</strong> on both TryHackMe and
+      HackTheBox, and I write in-depth walkthroughs of the machines and challenges I work through
+      on this blog.
     </p>
     <div class="about-cta">
-      <a href="/" class="about-btn about-btn-primary"><i class="fas fa-book"></i> Read the Blog</a>
-      <a href="#contact" class="about-btn about-btn-outline"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+      <a href="#contact" class="about-btn about-btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+      <a href="/" class="about-btn about-btn-outline"><i class="fas fa-book"></i> Read the Blog</a>
       <div class="about-icon-row">
         <a href="https://github.com/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -409,46 +465,60 @@ title: About
 
 <section class="about-stats">
   <div class="about-stat">
-    <span class="num">306</span>
-    <span class="label">TryHackMe Rooms</span>
+    <span class="num">13</span>
+    <span class="label">Security Engagements</span>
   </div>
   <div class="about-stat">
-    <span class="num">217</span>
-    <span class="label">HTB Flags Captured</span>
+    <span class="num">500+</span>
+    <span class="label">Rooms &amp; Machines Completed</span>
   </div>
   <div class="about-stat">
-    <span class="num">2</span>
+    <span class="num">3</span>
     <span class="label">Certifications</span>
   </div>
   <div class="about-stat">
     <span class="num">Top 1%</span>
-    <span class="label">Worldwide Ranking</span>
+    <span class="label">CTF Worldwide Ranking</span>
   </div>
 </section>
 
 <section>
-  <div class="about-section-title"><i class="fas fa-flag-checkered"></i> CTF Platforms</div>
+  <div class="about-section-title"><i class="fas fa-shield-halved"></i> Services</div>
+  <p class="about-services-intro">
+    I provide independent penetration testing and security consulting for organizations across
+    Lithuania and the Baltics, covering web, network, wireless, and mobile environments.
+    Available for consulting and private engagements &mdash; <a href="#contact">get in touch</a>.
+  </p>
   <div class="card-grid">
-    <div class="platform-card">
-      <img src="https://tryhackme-badges.s3.amazonaws.com/Riminux.png" alt="TryHackMe Badge" class="badge">
-      <h3><a href="https://tryhackme.com/r/p/Riminux" target="_blank" rel="noopener">TryHackMe</a></h3>
-      <ul class="platform-stats">
-        <li>Rooms completed <strong>306</strong></li>
-        <li>Badges earned <strong>33</strong></li>
-        <li>Rating <strong>Top 1% Worldwide</strong></li>
-        <li>Completed networks <strong>Wreath &amp; Throwback</strong></li>
-      </ul>
+    <div class="service-card">
+      <i class="fas fa-globe"></i>
+      <h3>Web Application Testing</h3>
+      <p>Identifying and validating vulnerabilities in web applications, tested against the OWASP Testing Guide.</p>
     </div>
-    <div class="platform-card">
-      <img src="{{ '/assets/img/about/RiminuxHTB.png' | relative_url }}" alt="HackTheBox Badge" class="badge">
-      <h3><a href="https://app.hackthebox.com/profile/569917" target="_blank" rel="noopener">HackTheBox</a></h3>
-      <ul class="platform-stats">
-        <li>System flags <strong>107</strong></li>
-        <li>User flags <strong>110</strong></li>
-        <li>Rank <strong>Pro Hacker</strong></li>
-        <li>Rating <strong>Top 1% Worldwide</strong></li>
-      </ul>
-      <a href="{{ '/assets/downloads/htbtranscript1.pdf' | relative_url }}" target="_blank" class="about-btn about-btn-outline"><i class="fas fa-file-arrow-down"></i> Academy Transcript</a>
+    <div class="service-card">
+      <i class="fas fa-network-wired"></i>
+      <h3>Network Penetration Testing</h3>
+      <p>Assessing internal and external network perimeters for exploitable weaknesses and misconfigurations.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-wifi"></i>
+      <h3>Wireless Security Assessments</h3>
+      <p>Testing wireless network configurations and access controls under real-world attack scenarios.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-user-secret"></i>
+      <h3>Social Engineering</h3>
+      <p>Evaluating human-layer security through simulated phishing and pretexting engagements.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-plug"></i>
+      <h3>API Security Testing</h3>
+      <p>Reviewing APIs and web services for authentication, authorization, and input-handling flaws.</p>
+    </div>
+    <div class="service-card">
+      <i class="fas fa-mobile-screen-button"></i>
+      <h3>Mobile Application Testing</h3>
+      <p>Assessing mobile apps against the OWASP Mobile Top 10.</p>
     </div>
   </div>
 </section>
@@ -469,6 +539,40 @@ title: About
       </a>
       <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener" class="cert-title">Offensive Security Certified Professional</a>
       <span class="cert-date">Obtained December 2025</span>
+    </div>
+    <div class="cert-card">
+      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-badge-icon" style="background: linear-gradient(135deg, #0a2540, #1a4a7a);">
+        <i class="fas fa-wifi"></i>
+      </a>
+      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-title">OffSec Wireless Professional (OSWP)</a>
+      <span class="cert-date">Obtained May 2026</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="about-section-title"><i class="fas fa-flag-checkered"></i> CTF Platforms</div>
+  <div class="card-grid">
+    <div class="platform-card">
+      <img src="https://tryhackme-badges.s3.amazonaws.com/Riminux.png" alt="TryHackMe Badge" class="badge">
+      <h3><a href="https://tryhackme.com/r/p/Riminux" target="_blank" rel="noopener">TryHackMe</a></h3>
+      <ul class="platform-stats">
+        <li>Rooms completed <strong>306</strong></li>
+        <li>Badges earned <strong>33</strong></li>
+        <li>Rating <strong>Top 1% Worldwide</strong></li>
+        <li>Completed networks <strong>Wreath &amp; Throwback</strong></li>
+      </ul>
+    </div>
+    <div class="platform-card">
+      <img src="{{ '/assets/img/about/RiminuxHTB.png' | relative_url }}" alt="HackTheBox Badge" class="badge">
+      <h3><a href="https://profile.hackthebox.com/profile/019db023-4363-7292-a7d6-56add1245c7a" target="_blank" rel="noopener">HackTheBox</a></h3>
+      <ul class="platform-stats">
+        <li>System flags <strong>107</strong></li>
+        <li>User flags <strong>110</strong></li>
+        <li>Rank <strong>Pro Hacker</strong></li>
+        <li>Rating <strong>Top 1% Worldwide</strong></li>
+      </ul>
+      <a href="{{ '/assets/downloads/htbtranscript1.pdf' | relative_url }}" target="_blank" class="about-btn about-btn-outline"><i class="fas fa-file-arrow-down"></i> Academy Transcript</a>
     </div>
   </div>
 </section>
@@ -532,14 +636,14 @@ title: About
 <section id="contact">
   <div class="about-contact-cta">
     <h2>Let's Connect</h2>
-    <p>Have a question, an opportunity, or just want to talk security? Reach out.</p>
+    <p>Have a question, need consulting or pentesting services, or just want to talk security? Reach out.</p>
     <div class="about-cta" style="justify-content: center;">
       <a href="mailto:raimundas.maciul@gmail.com" class="about-btn about-btn-primary"><i class="fas fa-envelope"></i> raimundas.maciul@gmail.com</a>
       <div class="about-icon-row">
         <a href="https://github.com/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
         <a href="https://tryhackme.com/r/p/Riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="TryHackMe"><i class="fas fa-terminal"></i></a>
-        <a href="https://app.hackthebox.com/profile/569917" target="_blank" rel="noopener" class="about-icon-btn" aria-label="HackTheBox"><i class="fas fa-cube"></i></a>
+        <a href="https://profile.hackthebox.com/profile/019db023-4363-7292-a7d6-56add1245c7a" target="_blank" rel="noopener" class="about-icon-btn" aria-label="HackTheBox"><i class="fas fa-cube"></i></a>
       </div>
     </div>
   </div>
