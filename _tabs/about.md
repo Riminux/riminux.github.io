@@ -219,9 +219,8 @@ title: About
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    max-width: 220px;
-    height: 170px;
+    width: 180px;
+    height: 180px;
     margin: 0 auto 1rem;
     border-radius: 8px;
     overflow: hidden;
@@ -236,11 +235,6 @@ title: About
     border-radius: 8px;
   }
 
-  #about-page .cert-media.icon-badge {
-    font-size: 2.75rem;
-    color: #fff;
-  }
-
   #about-page .platform-card,
   #about-page .cert-card {
     background: var(--card-bg);
@@ -252,7 +246,8 @@ title: About
   }
 
   #about-page .platform-card img.badge {
-    max-height: 90px;
+    width: 100%;
+    height: auto;
     margin-bottom: 0.9rem;
   }
 
@@ -444,7 +439,7 @@ title: About
 </style>
 
 <section class="about-hero">
-  <img src="{{ '/assets/img/favicons/profilepic.png' | relative_url }}" alt="Raimundas Maciulis" class="about-avatar">
+  <img src="{{ '/assets/img/about/profile-photo.jpg' | relative_url }}" alt="Raimundas Maciulis" class="about-avatar">
   <div>
     <span class="about-greeting">Hi, I'm</span>
     <h1 class="about-name">Raimundas Maciulis</h1>
@@ -461,7 +456,6 @@ title: About
       <a href="#contact" class="about-btn about-btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
       <a href="/" class="about-btn about-btn-outline"><i class="fas fa-book"></i> Read the Blog</a>
       <div class="about-icon-row">
-        <a href="https://github.com/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
@@ -471,7 +465,7 @@ title: About
 <section class="about-stats">
   <div class="about-stat">
     <span class="num">100+</span>
-    <span class="label">Pentests Delivered</span>
+    <span class="label">Pentests Done</span>
   </div>
   <div class="about-stat">
     <span class="num">1000+</span>
@@ -479,7 +473,7 @@ title: About
   </div>
   <div class="about-stat">
     <span class="num">3</span>
-    <span class="label">Certifications</span>
+    <span class="label">High-Tier Certifications</span>
   </div>
   <div class="about-stat">
     <span class="num">Top 1%</span>
@@ -503,17 +497,12 @@ title: About
     <div class="service-card">
       <i class="fas fa-network-wired"></i>
       <h3>Internal Network Testing</h3>
-      <p>Simulating an attacker with internal access to uncover privilege escalation and lateral movement paths.</p>
+      <p>Simulating an attacker with internal access to uncover privilege escalation and lateral movement paths, and identifying weaknesses in internal services and configurations.</p>
     </div>
     <div class="service-card">
       <i class="fas fa-window-maximize"></i>
-      <h3>Web Application Testing</h3>
-      <p>Identifying and validating vulnerabilities in web applications, tested against the OWASP Testing Guide.</p>
-    </div>
-    <div class="service-card">
-      <i class="fas fa-plug"></i>
-      <h3>API Security Testing</h3>
-      <p>Reviewing APIs and web services for authentication, authorization, and input-handling flaws.</p>
+      <h3>Web &amp; API Security Testing</h3>
+      <p>Identifying and validating vulnerabilities in web applications and APIs, tested against the OWASP Testing Guide, including authentication, authorization, and input-handling flaws.</p>
     </div>
     <div class="service-card">
       <i class="fas fa-mobile-screen-button"></i>
@@ -535,14 +524,14 @@ title: About
     </div>
     <div class="cert-card">
       <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener" class="cert-media">
-        <img src="{{ '/assets/img/about/oscptitle.jpg' | relative_url }}" alt="OSCP">
+        <img src="{{ '/assets/img/about/oscp-badge.png' | relative_url }}" alt="OSCP">
       </a>
       <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener" class="cert-title">Offensive Security Certified Professional</a>
       <span class="cert-date">Obtained December 2025</span>
     </div>
     <div class="cert-card">
-      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-media icon-badge" style="background: linear-gradient(135deg, #0a2540, #1a4a7a);">
-        <i class="fas fa-wifi"></i>
+      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-media">
+        <img src="{{ '/assets/img/about/oswp-badge.png' | relative_url }}" alt="OSWP">
       </a>
       <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-title">OffSec Wireless Professional (OSWP)</a>
       <span class="cert-date">Obtained May 2026</span>
