@@ -215,18 +215,30 @@ title: About
     gap: 1.25rem;
   }
 
-  #about-page .cert-badge-icon {
-    display: inline-flex;
+  #about-page .cert-media {
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-width: 260px;
-    aspect-ratio: 16 / 9;
+    max-width: 220px;
+    height: 170px;
+    margin: 0 auto 1rem;
     border-radius: 8px;
-    margin-bottom: 1rem;
-    color: #fff;
-    font-size: 2.75rem;
+    overflow: hidden;
+    background: var(--card-bg);
     text-decoration: none !important;
+  }
+
+  #about-page .cert-media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  #about-page .cert-media.icon-badge {
+    font-size: 2.75rem;
+    color: #fff;
   }
 
   #about-page .platform-card,
@@ -282,13 +294,6 @@ title: About
   #about-page .cert-card:hover,
   #about-page .platform-card:hover {
     transform: translateY(-3px);
-  }
-
-  #about-page .cert-card img {
-    width: 100%;
-    max-width: 260px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
   }
 
   #about-page .cert-card a.cert-title {
@@ -465,12 +470,12 @@ title: About
 
 <section class="about-stats">
   <div class="about-stat">
-    <span class="num">13</span>
-    <span class="label">Security Engagements</span>
+    <span class="num">100+</span>
+    <span class="label">Pentests Delivered</span>
   </div>
   <div class="about-stat">
-    <span class="num">500+</span>
-    <span class="label">Rooms &amp; Machines Completed</span>
+    <span class="num">1000+</span>
+    <span class="label">Vulnerabilities Found</span>
   </div>
   <div class="about-stat">
     <span class="num">3</span>
@@ -492,23 +497,18 @@ title: About
   <div class="card-grid">
     <div class="service-card">
       <i class="fas fa-globe"></i>
-      <h3>Web Application Testing</h3>
-      <p>Identifying and validating vulnerabilities in web applications, tested against the OWASP Testing Guide.</p>
+      <h3>External Perimeter Testing</h3>
+      <p>Assessing internet-facing infrastructure and external network perimeters for exploitable weaknesses.</p>
     </div>
     <div class="service-card">
       <i class="fas fa-network-wired"></i>
-      <h3>Network Penetration Testing</h3>
-      <p>Assessing internal and external network perimeters for exploitable weaknesses and misconfigurations.</p>
+      <h3>Internal Network Testing</h3>
+      <p>Simulating an attacker with internal access to uncover privilege escalation and lateral movement paths.</p>
     </div>
     <div class="service-card">
-      <i class="fas fa-wifi"></i>
-      <h3>Wireless Security Assessments</h3>
-      <p>Testing wireless network configurations and access controls under real-world attack scenarios.</p>
-    </div>
-    <div class="service-card">
-      <i class="fas fa-user-secret"></i>
-      <h3>Social Engineering</h3>
-      <p>Evaluating human-layer security through simulated phishing and pretexting engagements.</p>
+      <i class="fas fa-window-maximize"></i>
+      <h3>Web Application Testing</h3>
+      <p>Identifying and validating vulnerabilities in web applications, tested against the OWASP Testing Guide.</p>
     </div>
     <div class="service-card">
       <i class="fas fa-plug"></i>
@@ -527,21 +527,21 @@ title: About
   <div class="about-section-title"><i class="fas fa-certificate"></i> Certifications</div>
   <div class="card-grid">
     <div class="cert-card">
-      <a href="https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist" target="_blank" rel="noopener">
+      <a href="https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist" target="_blank" rel="noopener" class="cert-media">
         <img src="{{ '/assets/img/about/htbcpts.jpg' | relative_url }}" alt="HTB CPTS">
       </a>
       <a href="https://academy.hackthebox.com/preview/certifications/htb-certified-penetration-testing-specialist" target="_blank" rel="noopener" class="cert-title">HTB Certified Penetration Testing Specialist</a>
       <span class="cert-date">Obtained November 2024</span>
     </div>
     <div class="cert-card">
-      <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener">
+      <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener" class="cert-media">
         <img src="{{ '/assets/img/about/oscptitle.jpg' | relative_url }}" alt="OSCP">
       </a>
       <a href="https://www.offsec.com/products/oscp-plus/" target="_blank" rel="noopener" class="cert-title">Offensive Security Certified Professional</a>
       <span class="cert-date">Obtained December 2025</span>
     </div>
     <div class="cert-card">
-      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-badge-icon" style="background: linear-gradient(135deg, #0a2540, #1a4a7a);">
+      <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-media icon-badge" style="background: linear-gradient(135deg, #0a2540, #1a4a7a);">
         <i class="fas fa-wifi"></i>
       </a>
       <a href="https://www.offsec.com/courses/pen-210/" target="_blank" rel="noopener" class="cert-title">OffSec Wireless Professional (OSWP)</a>
@@ -640,10 +640,7 @@ title: About
     <div class="about-cta" style="justify-content: center;">
       <a href="mailto:raimundas.maciul@gmail.com" class="about-btn about-btn-primary"><i class="fas fa-envelope"></i> raimundas.maciul@gmail.com</a>
       <div class="about-icon-row">
-        <a href="https://github.com/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://tryhackme.com/r/p/Riminux" target="_blank" rel="noopener" class="about-icon-btn" aria-label="TryHackMe"><i class="fas fa-terminal"></i></a>
-        <a href="https://profile.hackthebox.com/profile/019db023-4363-7292-a7d6-56add1245c7a" target="_blank" rel="noopener" class="about-icon-btn" aria-label="HackTheBox"><i class="fas fa-cube"></i></a>
       </div>
     </div>
   </div>
