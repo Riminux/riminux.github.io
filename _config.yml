@@ -26,9 +26,6 @@ description: >- # used by seo meta and the atom feed
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://riminux.github.io"
 
-github:
-  username: riminux # change to your GitHub username
-
 linkedin:
   username: in/riminux
 
@@ -40,7 +37,6 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://www.linkedin.com/in/riminux
-    - https://github.com/riminux 
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
