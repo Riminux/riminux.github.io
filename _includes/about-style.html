@@ -121,6 +121,10 @@ section[id] { scroll-margin-top: calc(var(--navh) + 14px); }
   width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
   border: 1px solid var(--accent); color: var(--accent); font-size: .66rem; font-weight: 700;
   clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 0 100%);
+  /* The clipped top-right corner removes area only from that side, so text centered on
+     the full square reads as off-center toward the bottom-left of the visible shape.
+     Nudge the centered content slightly up/right (via bottom/left padding) to compensate. */
+  padding: 0 0 1px 1px;
 }
 .blink { color: var(--accent); animation: blink 1s steps(1) infinite; }
 
@@ -134,13 +138,14 @@ section[id] { scroll-margin-top: calc(var(--navh) + 14px); }
 
 .nav-meta { display: flex; align-items: center; gap: .7rem; }
 .nav-blog {
-  display: inline-flex; align-items: center;
+  display: inline-flex; align-items: center; gap: .35rem;
   padding: .32rem .9rem; border: 1px solid var(--line-2); border-radius: 999px;
   background: rgba(10,11,15,.9);
   font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; color: var(--muted);
   white-space: nowrap; transition: color .2s, border-color .2s, background .2s;
 }
 .nav-blog:hover { color: var(--accent); border-color: var(--accent); }
+.nav-blog-icon { display: none; width: 13px; height: 13px; flex-shrink: 0; }
 
 .switcher {
   display: inline-flex; align-items: center; gap: .25rem;
@@ -152,13 +157,13 @@ section[id] { scroll-margin-top: calc(var(--navh) + 14px); }
 .switcher a:hover { color: var(--text); }
 .switcher a.active { background: var(--accent); color: var(--ink); font-weight: 600; }
 
-.nav-toggle { display: none; flex-direction: column; gap: 4px; width: 22px; background: none; border: 0; cursor: pointer; padding: 0; }
-.nav-toggle span { height: 2px; background: var(--text); border-radius: 1px; transition: transform .25s, opacity .25s; }
+.nav-toggle { display: none; flex-direction: column; gap: 4px; width: 22px; flex-shrink: 0; background: none; border: 0; cursor: pointer; padding: 0; }
+.nav-toggle span { width: 100%; height: 2px; background: var(--text); border-radius: 1px; transition: transform .25s, opacity .25s; }
 .nav-toggle.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-@media (max-width: 900px) {
+@media (max-width: 1220px) {
   .nav-links {
     position: fixed; top: var(--navh); left: 0; right: 0; z-index: 79;
     background: rgba(7,7,10,.97); backdrop-filter: blur(14px);
@@ -171,10 +176,30 @@ section[id] { scroll-margin-top: calc(var(--navh) + 14px); }
   .nav-links a { width: 100%; padding: .8rem 0; }
   .nav-links a::after { display: none; }
   .nav-toggle { display: flex; }
+
+  /* On desktop, nav-inner's 1.6rem gap separates the full nav-links list from the
+     blog/switcher buttons, which reads fine as two distinct groups. Once nav-links
+     collapses behind the hamburger, that same 1.6rem gap just becomes a big gap
+     before the toggle instead — much bigger than the gap between the blog and
+     switcher buttons themselves — making the toggle look disconnected from the
+     buttons beside it. Tighten it so the whole right-hand cluster reads as one group. */
+  .nav-inner { gap: 1rem; }
 }
+/* At and below common phone widths (this covers everything from an iPhone SE up
+   through an iPhone 14 Pro Max in portrait) there isn't reliably enough room for
+   brand + toggle + blog pill + switcher on one line — worse in LT, where
+   "Tinklaraštis" is much wider than "Blog", but tight even in EN once font
+   rendering/scrollbar differences eat into the margin. Collapse the blog link to
+   an icon-only button (instead of just shrinking its text) so there's a generous
+   safety margin, rather than leaving the switcher pill riding right on the edge. */
 @media (max-width: 480px) {
   .nav-meta { gap: .4rem; }
-  .nav-blog { display: none; }
+  .nav-blog {
+    width: 27.3125px; height: 27.3125px; padding: 0; justify-content: center; flex-shrink: 0;
+    border-radius: 999px;
+  }
+  .nav-blog-icon { display: block; }
+  .nav-blog-label { display: none; }
   .switcher a { padding: .28rem .5rem; font-size: .64rem; }
 }
 
@@ -196,7 +221,7 @@ section { position: relative; z-index: 1; }
   font-size: clamp(5rem, 13vw, 9.5rem); font-weight: 800; line-height: 1; letter-spacing: -.04em;
   color: var(--text); opacity: .035;
 }
-.block { padding: clamp(3rem, 6vw, 5rem) 0; }
+.block { padding: clamp(2rem, 4vw, 3.25rem) 0; }
 
 .hero { min-height: 100svh; display: flex; align-items: center; padding-top: 5rem; }
 .hero-grid {
@@ -230,7 +255,7 @@ section { position: relative; z-index: 1; }
 }
 .hero-sub em { color: var(--accent); font-style: normal; font-weight: 700; }
 .hero-bio {
-  max-width: 46ch; color: var(--muted); margin: 1.6rem 0 2.2rem; font-size: 1.02rem;
+  max-width: 62ch; color: var(--muted); margin: 1.6rem 0 2.2rem; font-size: 1.02rem;
 }
 .hero-bio strong { color: var(--text); font-weight: 600; }
 
@@ -292,7 +317,6 @@ section { position: relative; z-index: 1; }
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
   font-family: var(--font-mono); font-size: .82rem; overflow: hidden;
   cursor: pointer; transition: border-color .2s;
-  min-height: 146px;
 }
 .term:hover { border-color: var(--line-2); }
 .term-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; border-bottom: 1px solid var(--line); color: var(--faint); height: 39px; }
@@ -300,7 +324,6 @@ section { position: relative; z-index: 1; }
 .term-bar .name { margin-left: auto; letter-spacing: .06em; font-size: .72rem; }
 .term-body {
   padding: .85rem .9rem; line-height: 1.8;
-  min-height: 107px;
 }
 .term-body .p { color: var(--accent); }
 .term-body .cmd { color: var(--text); }
@@ -311,7 +334,7 @@ section { position: relative; z-index: 1; }
 @keyframes blink { 50% { opacity: 0; } }
 
 .stats {
-  display: grid; grid-template-columns: repeat(4, 1fr);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: clamp(2.5rem, 6vw, 4.5rem);
   border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2);
 }
@@ -455,20 +478,82 @@ section { position: relative; z-index: 1; }
 @keyframes line-up { to { transform: none; } }
 
 @media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-side { order: -1; max-width: 340px; }
+  /* The hero is packed noticeably tighter here than on desktop — title,
+     photo and spacing are all scaled down together so the whole hero
+     (through the CTA buttons) fits in one screen without scrolling. */
+  .hero { padding-top: calc(var(--navh) + 6px); }
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
   .grid.cols-3 { grid-template-columns: 1fr; }
   .grid.grid-fit > * { flex-basis: calc(50% - .425rem); max-width: calc(50% - .425rem); }
-  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
+  /* Unwrap hero-main so its children can be reordered alongside hero-side.
+     hero-grid's gap would otherwise sit between every item instead of just 2 columns,
+     so it's zeroed above and hero-side carries its own margin instead. */
+  .hero-main { display: contents; }
+  .eyebrow { order: 1; margin-bottom: .5rem; }
+  .hero h1 { order: 2; font-size: clamp(2.1rem, 10.5vw, 4.2rem); }
+  .hero-side {
+    order: 3; max-width: 100%; width: clamp(300px, 60vw, 500px); margin: .6rem 0;
+    flex-direction: column; gap: .5rem;
+  }
+  .hero-sub { order: 4; margin-top: .6rem; font-size: clamp(1.05rem, 2.6vw, 1.5rem); }
+  .hero-bio { order: 5; margin: .6rem 0 1rem; }
+  .cta-row { order: 6; gap: .5rem; }
+
+  /* LT button labels ("Skaityti tinklaraštį") run much longer than EN ("Read the blog"),
+     so a side-by-side pair looks lopsided in LT once space is tight. Stacking removes
+     the need for the two buttons to match width, and keeps EN/LT consistent here. */
+  .hero-cta { flex-direction: column; align-items: flex-start; }
+
+  /* Contact's buttons (email + LinkedIn) always stay side by side here instead of
+     wrapping to a new row or stacking — they shrink and their text wraps internally
+     instead, so long labels like the email address still fit. */
+  .contact .cta-row { flex-wrap: nowrap; }
+  .cta-row .btn {
+    padding: .6rem 1.1rem; flex: 0 1 auto; min-width: 0;
+    white-space: normal; text-align: center; overflow-wrap: break-word;
+  }
+  /* The email address is one unbreakable string — shrink it enough to stay on
+     one line rather than wrapping mid-word, instead of relying on overflow-wrap. */
+  .contact .cta-row { gap: .4rem; }
+  .contact .cta-row .btn { font-size: .62rem; padding: .5rem .6rem; gap: .3rem; white-space: nowrap; }
+  .icon-link { flex: 0 0 auto; width: 36px; height: 36px; }
+
+  /* RIMI / NUX as one word on one line instead of stacked */
+  .line-mask, .line-in { display: inline-block; }
+
+  /* The source photo is a square (400x400) — 1/1 shows all of it with no
+     vertical cropping, unlike a wide ratio which would crop down to just
+     the head. Still shorter than desktop's tall 4/5 crop, to stay compact. */
+  .portrait { aspect-ratio: 1/1; }
+  .term { min-width: 0; min-height: 0; }
+  .term-bar { height: 28px; padding: .3rem .55rem; }
+  .term-bar .name { font-size: .62rem; }
+  .term-body { font-size: .78rem; padding: .45rem .6rem; }
+  .status-chip {
+    left: 8px; right: 8px; bottom: 8px;
+    padding: .35rem .45rem; gap: .35rem;
+    font-size: .54rem; line-height: 1.35; letter-spacing: .04em;
+    border-radius: 10px; white-space: normal; text-align: left;
+  }
+  .status-chip .live { flex-shrink: 0; margin-top: .15rem; }
+  .reticle { width: 16px; height: 16px; }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
   .grid.cols-2 { grid-template-columns: 1fr; }
   .grid.grid-fit > * { flex-basis: 100%; max-width: 100%; }
-  .stats { grid-template-columns: 1fr 1fr; }
-  .hero { padding-top: 5.5rem; }
+  /* minmax(0, ...) lets a track shrink below its label's min-content width (e.g. EN's
+     unbroken "CERTIFICATIONS"/"WORLDWIDE") instead of forcing the grid — and the whole
+     page — wider than the viewport, which is what caused the sideways-swipe overflow. */
+  .stats { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+@media (max-width: 400px) {
+  .cta-row { gap: .4rem; }
+  .cta-row .btn { padding: .55rem .8rem; font-size: .82rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
