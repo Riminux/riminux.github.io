@@ -1,8 +1,8 @@
 ---
 title: Certified Writeup
 description: Writeup of "Certified" machine from Hackthebox
-categories: [Writeups, Hackthebox]
-tags: [Hackthebox]
+categories: [Writeups, Hackthebox, "Medium"]
+tags: [Hackthebox, "Medium"]
 image:
   path: /assets/blogimages/Writeups/Hackthebox/Certified/CertifiedLOGO.png
   alt: Certified Writeup

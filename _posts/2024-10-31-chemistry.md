@@ -1,8 +1,8 @@
 ---
 title: Chemistry Writeup
 description: Writeup of "Chemistry" machine from Hackthebox
-categories: [Writeups, Hackthebox]
-tags: [Hackthebox]
+categories: [Writeups, Hackthebox, "Easy"]
+tags: [Hackthebox, "Easy"]
 image:
   path: /assets/blogimages/Writeups/Hackthebox/Chemistry/ChemistryLOGO.png
   alt: Chemistry Writeup

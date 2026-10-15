@@ -101,20 +101,6 @@
     }, { passive: true });
   }
 
-  if (!reduce) {
-    var heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-      (function ambientGlitch() {
-        var delay = 4000 + Math.random() * 5000;
-        setTimeout(function () {
-          heroTitle.classList.add('glitch-once');
-          setTimeout(function () { heroTitle.classList.remove('glitch-once'); }, 260);
-          ambientGlitch();
-        }, delay);
-      })();
-    }
-  }
-
   document.querySelectorAll('[data-stagger]').forEach(function (group) {
     group.querySelectorAll('.reveal').forEach(function (el, i) {
       el.style.transitionDelay = (i * 70) + 'ms';
@@ -147,62 +133,6 @@
     });
   }, { threshold: 0.6 });
   document.querySelectorAll('[data-target]').forEach(function (el) { numObs.observe(el); });
-
-  var termCmdEl = document.querySelector('.term-type');
-  var termOutEl = document.querySelector('.term-out');
-  var termBoxEl = document.getElementById('termBox');
-  var TERM_CMDS = [];
-  if (termBoxEl) {
-    try { TERM_CMDS = JSON.parse(termBoxEl.dataset.cmds || '[]'); } catch (e) { TERM_CMDS = []; }
-  }
-  var termIdx = 0;
-  var termBusy = false;
-
-  function runTermLine(i, animate) {
-    if (!termCmdEl || termBusy || !TERM_CMDS.length) return;
-    termBusy = true;
-    var entry = TERM_CMDS[i % TERM_CMDS.length];
-    if (termOutEl) termOutEl.textContent = '';
-    if (!animate) {
-      termCmdEl.textContent = entry.cmd;
-      if (termOutEl) termOutEl.textContent = entry.out;
-      termBusy = false;
-      return;
-    }
-    termCmdEl.textContent = '';
-    var j = 0;
-    (function tick() {
-      termCmdEl.textContent = entry.cmd.slice(0, j++);
-      if (j <= entry.cmd.length) { setTimeout(tick, 55); }
-      else {
-        if (termOutEl) termOutEl.textContent = entry.out;
-        termBusy = false;
-      }
-    })();
-  }
-
-  if (termCmdEl && TERM_CMDS.length) {
-    var typeObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        typeObs.disconnect();
-        runTermLine(termIdx, !reduce);
-      });
-    }, { threshold: 0.4 });
-    typeObs.observe(termCmdEl);
-  }
-
-  if (termBoxEl) {
-    var advanceTerm = function () {
-      if (termBusy) return;
-      termIdx = (termIdx + 1) % TERM_CMDS.length;
-      runTermLine(termIdx, !reduce);
-    };
-    termBoxEl.addEventListener('click', advanceTerm);
-    termBoxEl.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); advanceTerm(); }
-    });
-  }
 
   var y = document.querySelector('.year');
   if (y) y.textContent = new Date().getFullYear();

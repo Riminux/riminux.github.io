@@ -1,12 +1,14 @@
 ---
 title: Sightless Writeup
 description: Writeup of "Sightless" machine from Hackthebox
-categories: [Writeups, Hackthebox]
-tags: [Hackthebox]
+categories: [Writeups, Hackthebox, "Easy"]
+tags: [Hackthebox, "Easy"]
 image:
   path: /assets/blogimages/Writeups/Hackthebox/Sightless/sightlessLOGO.png
   alt: Sightless Writeup
 ---
+
+
 
 # Sightless(E)
 

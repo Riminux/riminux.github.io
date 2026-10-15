@@ -1,8 +1,8 @@
 ---
 title: MonitorsThree Writeup
 description: Writeup of "MonitorsThree" machine from Hackthebox
-categories: [Writeups, Hackthebox]
-tags: [Hackthebox]
+categories: [Writeups, Hackthebox, "Medium"]
+tags: [Hackthebox, "Medium"]
 image:
   path: /assets/blogimages/Writeups/Hackthebox/MonitorsThree/MonitorsThreeLOGO.png
   alt: MonitorsThree Writeup

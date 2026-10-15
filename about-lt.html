@@ -1,9 +1,9 @@
 ---
 layout: about-custom
 title: Apie
-description: "Raimundas Mačiulis · Kibernetinių įsilaužimų testuotojas ir saugumo konsultantas. Atakuojamasis saugumas web, tinklo, belaidžio ryšio ir mobiliojo aplinkose."
+description: "Raimundas · Kibernetinių įsilaužimų testuotojas ir saugumo konsultantas. Atakuojamasis saugumas web, išorinio ir vidinio tinklo bei mobiliojo aplinkose."
 lang: lt
-permalink: /about/lt/
+permalink: /lt/
 ---
 
 {% include about-style.html %}
@@ -16,7 +16,7 @@ permalink: /about/lt/
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a class="nav-brand" href="{{ '/blog/' | relative_url }}" aria-label="Į tinklaraštį">
+    <a class="nav-brand" href="{{ '/lt/' | relative_url }}" aria-label="Pagrindinis puslapis">
       <span class="brand-badge">RX</span>
       <span>RIMINUX<span class="blink">_</span></span>
     </a>
@@ -37,45 +37,24 @@ permalink: /about/lt/
       <a class="nav-blog" href="{{ '/blog/' | relative_url }}" aria-label="Tinklaraštis"><svg class="nav-blog-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg><span class="nav-blog-label">Tinklaraštis</span></a>
       <span class="switcher" aria-label="Kalba">
         <a href="{{ '/' | relative_url }}">EN</a>
-        <a class="active" href="{{ '/about/lt/' | relative_url }}">LT</a>
+        <a class="active" href="{{ '/lt/' | relative_url }}">LT</a>
       </span>
     </div>
   </div>
 </nav>
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-main">
-      <div class="eyebrow"><span class="dot"></span> Kibernetinių įsilaužimų testuotojas</div>
-      <h1><span class="line-mask"><span class="line-in d1">RIMI</span></span><span class="line-mask"><span class="line-in d2 glow">NUX</span></span></h1>
-      <p class="hero-sub">Randu pažeidžiamumus. <em>Tiksliai.</em></p>
+  <div class="wrap hero-inner">
+    <div class="hero-foot">
       <p class="hero-bio reveal">
-        Esu <strong>Raimundas Mačiulis</strong>, kibernetinių įsilaužimų testuotojas. Randu,
-        išnaudoju ir aiškiai dokumentuoju spragas tiksliai, derindamas automatinius įrankius su
-        rankiniu darbu. Testuoju web aplikacijas, tinklus, belaidžius ryšius ir mobiliąsias
-        aplikacijas organizacijoms visame pasaulyje.
+        Esu <strong>Raimundas</strong>, kibernetinių įsilaužimų testuotojas. Randu,
+        išnaudoju ir aiškiai dokumentuoju pažeidžiamumus web aplikacijose, išoriniuose ir vidiniuose
+        tinkluose bei mobiliosiose aplikacijose, derindamas automatinius įrankius su rankiniu
+        testavimu. Šias paslaugas teikiu įvairių sektorių organizacijoms.
       </p>
       <div class="cta-row hero-cta">
         <a href="#contact" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> Susisiekti</a>
         <a href="{{ '/blog/' | relative_url }}" class="btn btn-ghost"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg> Skaityti tinklaraštį</a>
-      </div>
-    </div>
-
-    <div class="hero-side">
-      <div class="portrait">
-        <span class="reticle tl"></span><span class="reticle tr"></span>
-        <span class="reticle bl"></span><span class="reticle br"></span>
-        <img src="{{ '/assets/img/about/profile-photo.jpg' | relative_url }}" alt="Raimundas Mačiulis" fetchpriority="high">
-        <span class="status-chip"><span class="live"></span> PRIEINAMAS PROJEKTAMS</span>
-      </div>
-      <div class="term" id="termBox" role="button" tabindex="0" aria-label="Vykdyti kitą komandą"
-           data-cmds='[{"cmd":"whoami","out":"&gt; riminux"},{"cmd":"id","out":"&gt; uid=1000(riminux) gid=1000(riminux) groups=1000(riminux),27(sudo),1337(pentester)"},{"cmd":"uname -a","out":"&gt; Linux pwn 6.x #1 SMP x86_64 GNU/Linux"},{"cmd":"cat status.txt","out":"&gt; PRIEINAMAS PROJEKTAMS"}]'>
-        <div class="term-bar"><span class="tb"></span><span class="tb"></span><span class="tb"></span><span class="name">riminux@pwn:~</span></div>
-        <div class="term-body">
-          <div><span class="p">$</span> <span class="cmd term-type">whoami</span><span class="term-cursor"></span></div>
-          <div class="out term-out">&gt; riminux</div>
-          <div class="term-hint">» spauskite kitai komandai</div>
-        </div>
       </div>
     </div>
   </div>
@@ -110,6 +89,10 @@ permalink: /about/lt/
       ataskaita: aiškiai aprašytomis spragomis, rizikos įvertinimais ir rekomendacijomis, kaip
       jas pašalinti.
     </p>
+    <p class="svc-note reveal"><i class="fas fa-user-check" aria-hidden="true"></i><span>
+      <strong>Dirbu individualiai.</strong> Su manimi bendraujate tiesiogiai: nuo apimties
+      suderinimo ir testavimo iki galutinės ataskaitos, be jokių tarpininkų.
+    </span></p>
     <div class="grid cols-3 grid-fit" data-stagger>
       <div class="card service reveal"><div class="c-num">01</div><div class="c-icon"><i class="fas fa-globe"></i></div><h3>Išorinis perimetras</h3><p>Vertinu viešai prieinamą infrastruktūrą ir išorinius tinklo perimetrus, siekdamas rasti silpnąsias vietas, įskaitant OSINT paiešką dėl tamsiajame internete nutekėjusių prisijungimo duomenų.</p></div>
       <div class="card service reveal"><div class="c-num">02</div><div class="c-icon"><i class="fas fa-network-wired"></i></div><h3>Vidinis tinklas</h3><p>Simuliuoju atakuotoją su vidiniu prieigos lygiu, ieškodamas spragų paslaugose, vartotojų teisėse ir kitose konfigūracijos klaidose, siekdamas atskleisti teisių eskalavimo ir plitimo tinkle galimybes.</p></div>
@@ -274,7 +257,7 @@ permalink: /about/lt/
 
 <footer class="foot">
   <div class="foot-inner">
-    <span>© <span class="year">2026</span> RIMINUX</span>
+    <span>© <span class="year">2026</span> RIMINUX / Raimundas Mačiulis</span>
     <a class="to-top" href="#"><i class="fas fa-arrow-up"></i> GRĮŽTI Į VIRŠŲ</a>
   </div>
 </footer>

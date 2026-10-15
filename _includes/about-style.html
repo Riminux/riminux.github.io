@@ -223,41 +223,20 @@ section { position: relative; z-index: 1; }
 }
 .block { padding: clamp(2rem, 4vw, 3.25rem) 0; }
 
-.hero { min-height: 100svh; display: flex; align-items: center; padding-top: 5rem; }
-.hero-grid {
-  width: 100%; display: grid; grid-template-columns: 1.35fr .95fr;
-  gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
-}
+.hero { padding: calc(var(--navh) + clamp(1.75rem, 5vw, 4rem)) 0 0; }
+.hero-inner { width: 100%; text-align: center; }
 
-.eyebrow {
-  font-family: var(--font-mono); font-size: .8rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--muted);
-  display: inline-flex; align-items: center; gap: .7rem; margin-bottom: 1.6rem;
+/* Single centred column: bio with the buttons centred beneath it. */
+.hero-foot {
+  display: flex; flex-direction: column; align-items: center;
+  gap: clamp(1.6rem, 3vw, 2.2rem);
 }
-.eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 0 rgba(198,242,78,.6); animation: pulse 2.4s infinite; }
-@keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(198,242,78,.55);} 70%{box-shadow:0 0 0 9px rgba(198,242,78,0);} 100%{box-shadow:0 0 0 0 rgba(198,242,78,0);} }
-
-.hero h1 {
-  font-size: clamp(4rem, 15vw, 12rem); line-height: .86; margin: 0;
-  font-weight: 700; letter-spacing: -.04em; text-transform: uppercase;
-  cursor: default;
-}
-.hero h1:hover, .hero h1.glitch-once { animation: glitchflicker .22s steps(2) 2; }
-@keyframes glitchflicker {
-  0% { text-shadow: 2px 0 #ff5f56, -2px 0 #5fd0ff; }
-  50% { text-shadow: -2px 0 #ff5f56, 2px 0 #5fd0ff; }
-  100% { text-shadow: none; }
-}
-.hero-sub {
-  font-family: var(--font-display); font-weight: 500; font-style: normal;
-  font-size: clamp(1.4rem, 3.2vw, 2.1rem); color: var(--text);
-  margin: 1.4rem 0 0; line-height: 1.3; letter-spacing: -.01em;
-}
-.hero-sub em { color: var(--accent); font-style: normal; font-weight: 700; }
 .hero-bio {
-  max-width: 62ch; color: var(--muted); margin: 1.6rem 0 2.2rem; font-size: 1.02rem;
+  max-width: 56ch; color: var(--muted); margin: 0 auto;
+  font-size: clamp(1rem, .9rem + .4vw, 1.18rem); line-height: 1.7;
 }
 .hero-bio strong { color: var(--text); font-weight: 600; }
+.hero-cta { justify-content: center; }
 
 .cta-row { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
 
@@ -281,56 +260,6 @@ section { position: relative; z-index: 1; }
 .icon-link svg { display: block; }
 .icon-link:hover { transform: translateY(-3px); color: var(--accent); border-color: var(--accent); background: var(--surface-2); }
 
-.hero-side { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
-.portrait {
-  position: relative; border-radius: 14px; overflow: hidden;
-  background: var(--surface); aspect-ratio: 4/5;
-  box-shadow: 0 30px 80px -30px rgba(0,0,0,.8);
-}
-.portrait img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  filter: grayscale(1) contrast(1.05) brightness(.92);
-  transition: filter .5s ease, transform .8s ease;
-}
-.portrait:hover img { filter: grayscale(0) contrast(1) brightness(1); transform: scale(1.03); }
-.portrait::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(7,7,10,.85));
-  mix-blend-mode: multiply;
-}
-.reticle { position: absolute; width: 22px; height: 22px; border: 2px solid var(--accent); z-index: 2; }
-.reticle.tl { top: 12px; left: 12px; border-right: 0; border-bottom: 0; }
-.reticle.tr { top: 12px; right: 12px; border-left: 0; border-bottom: 0; }
-.reticle.bl { bottom: 12px; left: 12px; border-right: 0; border-top: 0; }
-.reticle.br { bottom: 12px; right: 12px; border-left: 0; border-top: 0; }
-.status-chip {
-  position: absolute; left: 12px; bottom: 12px; z-index: 3;
-  display: inline-flex; align-items: center; gap: .5rem;
-  padding: .4rem .8rem; border-radius: 999px;
-  background: rgba(7,7,10,.9);
-  border: 1px solid var(--line-2); font-family: var(--font-mono);
-  font-size: .72rem; letter-spacing: .08em; color: var(--text);
-}
-.status-chip .live { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade80; animation: blink 1.4s steps(1) infinite; }
-
-.term {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-  font-family: var(--font-mono); font-size: .82rem; overflow: hidden;
-  cursor: pointer; transition: border-color .2s;
-}
-.term:hover { border-color: var(--line-2); }
-.term-bar { display: flex; align-items: center; gap: .4rem; padding: .6rem .8rem; border-bottom: 1px solid var(--line); color: var(--faint); height: 39px; }
-.term-bar .tb { width: 10px; height: 10px; border-radius: 50%; background: #2a2c36; }
-.term-bar .name { margin-left: auto; letter-spacing: .06em; font-size: .72rem; }
-.term-body {
-  padding: .85rem .9rem; line-height: 1.8;
-}
-.term-body .p { color: var(--accent); }
-.term-body .cmd { color: var(--text); }
-.term-body .out { color: var(--muted); }
-.term-body > div { white-space: normal; overflow-wrap: break-word; min-height: 24px; }
-.term-hint { margin-top: .35rem; font-size: .64rem; letter-spacing: .08em; color: var(--faint); }
-.term-cursor { display: inline-block; width: 8px; height: 1.05em; background: var(--accent); vertical-align: -2px; margin-left: 2px; animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
 .stats {
@@ -373,6 +302,13 @@ section { position: relative; z-index: 1; }
 
 .lead { max-width: 62ch; color: var(--muted); font-size: 1.02rem; margin: 0 0 1.6rem; }
 .lead a { color: var(--accent); border-bottom: 1px solid rgba(198,242,78,.35); }
+.svc-note {
+  display: flex; align-items: flex-start; gap: .75rem; max-width: 62ch; margin: -.4rem 0 1.8rem;
+  padding: .9rem 1.1rem; background: var(--surface); border: 1px solid var(--line);
+  border-left: 2px solid var(--accent); color: var(--muted); font-size: .98rem; line-height: 1.6;
+}
+.svc-note i { color: var(--accent); margin-top: .3rem; flex-shrink: 0; }
+.svc-note strong { color: var(--text); font-weight: 600; }
 
 .cert { text-align: center; padding: 1.4rem 1.2rem; }
 .cert .cert-media { height: 120px; display: flex; align-items: center; justify-content: center; margin-bottom: .9rem; }
@@ -471,42 +407,16 @@ section { position: relative; z-index: 1; }
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,.61,.36,1), transform .7s cubic-bezier(.22,.61,.36,1); }
 .reveal.in { opacity: 1; transform: none; }
 
-.line-mask { overflow: hidden; }
-.line-in { display: block; transform: translateY(105%); animation: line-up .95s cubic-bezier(.22,.61,.36,1) forwards; }
-.line-in.d1 { animation-delay: .05s; }
-.line-in.d2 { animation-delay: .18s; }
-@keyframes line-up { to { transform: none; } }
 
 @media (max-width: 900px) {
-  /* The hero is packed noticeably tighter here than on desktop — title,
-     photo and spacing are all scaled down together so the whole hero
-     (through the CTA buttons) fits in one screen without scrolling. */
-  .hero { padding-top: calc(var(--navh) + 6px); }
-  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  .hero { padding-top: calc(var(--navh) + 1.25rem); }
   .grid.cols-3 { grid-template-columns: 1fr; }
   .grid.grid-fit > * { flex-basis: calc(50% - .425rem); max-width: calc(50% - .425rem); }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(3) { border-left: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
 
-  /* Unwrap hero-main so its children can be reordered alongside hero-side.
-     hero-grid's gap would otherwise sit between every item instead of just 2 columns,
-     so it's zeroed above and hero-side carries its own margin instead. */
-  .hero-main { display: contents; }
-  .eyebrow { order: 1; margin-bottom: .5rem; }
-  .hero h1 { order: 2; font-size: clamp(2.1rem, 10.5vw, 4.2rem); }
-  .hero-side {
-    order: 3; max-width: 100%; width: clamp(300px, 60vw, 500px); margin: .6rem 0;
-    flex-direction: column; gap: .5rem;
-  }
-  .hero-sub { order: 4; margin-top: .6rem; font-size: clamp(1.05rem, 2.6vw, 1.5rem); }
-  .hero-bio { order: 5; margin: .6rem 0 1rem; }
-  .cta-row { order: 6; gap: .5rem; }
-
-  /* LT button labels ("Skaityti tinklaraštį") run much longer than EN ("Read the blog"),
-     so a side-by-side pair looks lopsided in LT once space is tight. Stacking removes
-     the need for the two buttons to match width, and keeps EN/LT consistent here. */
-  .hero-cta { flex-direction: column; align-items: flex-start; }
+  .cta-row { gap: .5rem; }
 
   /* Contact's buttons (email + LinkedIn) always stay side by side here instead of
      wrapping to a new row or stacking — they shrink and their text wraps internally
@@ -521,26 +431,6 @@ section { position: relative; z-index: 1; }
   .contact .cta-row { gap: .4rem; }
   .contact .cta-row .btn { font-size: .62rem; padding: .5rem .6rem; gap: .3rem; white-space: nowrap; }
   .icon-link { flex: 0 0 auto; width: 36px; height: 36px; }
-
-  /* RIMI / NUX as one word on one line instead of stacked */
-  .line-mask, .line-in { display: inline-block; }
-
-  /* The source photo is a square (400x400) — 1/1 shows all of it with no
-     vertical cropping, unlike a wide ratio which would crop down to just
-     the head. Still shorter than desktop's tall 4/5 crop, to stay compact. */
-  .portrait { aspect-ratio: 1/1; }
-  .term { min-width: 0; min-height: 0; }
-  .term-bar { height: 28px; padding: .3rem .55rem; }
-  .term-bar .name { font-size: .62rem; }
-  .term-body { font-size: .78rem; padding: .45rem .6rem; }
-  .status-chip {
-    left: 8px; right: 8px; bottom: 8px;
-    padding: .35rem .45rem; gap: .35rem;
-    font-size: .54rem; line-height: 1.35; letter-spacing: .04em;
-    border-radius: 10px; white-space: normal; text-align: left;
-  }
-  .status-chip .live { flex-shrink: 0; margin-top: .15rem; }
-  .reticle { width: 16px; height: 16px; }
 }
 @media (max-width: 620px) {
   body { font-size: 16px; }
@@ -551,6 +441,13 @@ section { position: relative; z-index: 1; }
      page — wider than the viewport, which is what caused the sideways-swipe overflow. */
   .stats { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
+@media (max-width: 480px) {
+  /* LT button labels ("Skaityti tinklaraštį") run much longer than EN ("Read the blog"),
+     so a side-by-side pair looks lopsided in LT once space is tight. Stack them at one
+     shared full width instead, so both buttons match in EN and LT. */
+  .hero-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  .hero-cta .btn { width: 100%; }
+}
 @media (max-width: 400px) {
   .cta-row { gap: .4rem; }
   .cta-row .btn { padding: .55rem .8rem; font-size: .82rem; }
@@ -559,7 +456,6 @@ section { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   .reveal { opacity: 1; transform: none; }
-  .line-in { transform: none; }
   html { scroll-behavior: auto; }
 }
 
